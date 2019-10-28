@@ -1,0 +1,112 @@
+1 Instalación
+cd C:\xampp\htdocs composer create-project laravel/laravel nombre_del_proyecto --prefer-dist
+
+http://localhost/LaravelProject/public/
+
+https://styde.net/instalacion-de-composer-y-laravel-en-windows/
+
+2 Primer ruta en laravel
+
+Clase de mierda
+
+3 Cómo funciona Blase
+
+Clase de mierda
+
+4 Controladores en Laravel 
+
+php artisan make:controller --help Ayuda
+php artisan make:controller HomeController
+
+Controlador en el router de web.php
+
+Route::get('/','HomeController@index');
+		//Controlador//Acción
+
+
+5 Configuración de Laravel
+
+Configurar Variables de entorno
+
+6 Cómo funcionan las Migraciones de DB
+
+php artisan migrate
+
+Momazo agregar tamaño definido a la campos unique e indice de las migraciones default de laravel
+
+7 Migraciones en Artisan
+
+php artisan make:migration
+
+php artisan make:migration Nombre de la migracion
+
+php artisan make:rollback DESHACER MIGRACION
+
+php artisan make:fresh mandar todo al acarajo y volverlo a hacer
+
+Buenas practicas nombres de modelo individual Nombres de tablas plural
+
+8 Modelos Eloquent
+
+php artisan make:model ExpenseReport
+
+php artisan tinker Entorno para testear db y cosas del orm
+
+salir de tinker exit
+
+9 Trabaja con Modelos
+
+Nunca editar migraciones mejor hecharle migraciones encima
+
+php artisan make:migration create_column-title_in_reports --table=expense_reports
+
+comando crear modificar una migracion en una tabla de una migracion previa
+
+10 Controladores y recursos
+
+php artisan make:Controller ExpenseReportController --resource controlador yuca que hace de todo
+en un crud
+
+php artisan route:list comando para ver las rutas que se tienen configuradas en la app
+
+BladeLayout
+
+CSRF
+
+CSRF
+CSRF (Cross-site request forgery) es un tipo de ataque que consiste en que un usuario puede intentar hacer muchas peticiones en nombre de otro. Para esto Laravel genera con cada sesión un token que se usará para validar que exista el usuario en el sistema y que sea él quien está haciendo la petición. Esto también implica que no se pueden hacer peticiones desde otra app hacia el post, debe manejarse de manera interna.
+
+Si queremos que un form pueda pasar la seguridad CSRF de Laravel, debemos agregar el helper @csrf el cual nos agrega un token.
+
+Cuando estamos guardando nuevas entradas en la base de datos podemos redireccionar adonde queramos en nuestra aplicación con una respuesta especial de Laravel llamada redirect.
+Estamos trabajando con Middlewares los cuales son muy usados en aplicaciones web que consisten en capas que contienen el request. Cuando llega un request, éste deberá pasar por diferentes capas o filtros (middlewares) quienes al final regresarán una respuesta. Cada uno de los filtros puede detener las peticiones en caso de que algo no cumpla.
+
+Si no se desea usar la protección CSRF se puede directamente quitar el middleware desde el archivo kernel.php. De la misma manera se pueden crear middleware propios y agregarlos aquí.
+
+agregar @csrf Para generar un token valido en el form para que laravel no le de pija a la request
+
+
+Fake PUT/PATCH
+En Laravel cuando usamos recursos nos pone Put y Patch como una opción para modificar nuestros recursos. El problema de esto es que en un form no se puede especificar directamente que queremos hacer un Put o un Patch y por esto Laravel nos ofrece un mecanismo para hacer ”Fake PUT/PATCH” y podamos recibir y procesar los datos.
+
+Para que Laravel acepte el Put o Patch es necesario poner dentro del form de manera auxiliar @method(‘tipo de método usado’) y así aunque el form tenga un POST como método, realmente será traducido al que especifiquemos dentro del auxiliar.
+
+Borrando reportes
+De la misma forma en la que pudimos crear un “Fake PUT/PATCH” también podemos crear una especie de “Fake DELETE”.
+
+Con Javascript podemos mostrar una alerta al borrar una entrada que nos permita confirmar si la vamos a borrar o no.
+Es bueno que las vistas hagan match con la acción porque permite encontrar rápidamente qué vista le pertenece a qué acción.
+Laravel nos ofrece el helper @method(‘delete’) ya que no se puede especificar directamente en el form.
+Tenemos con Laravel un método especial findOrFail que permitirá regresar un error 404 si un usuario está haciendo algo no válido al consultar o editar un registro en la base de datos.
+
+Relaciones con eloquent
+
+php artisan make:model -m Comando yuca para hacer el modelo y la migration de one
+
+Enviando emails
+
+php artisan make:mail nombre
+
+Login
+
+php artisan make:auth SOLO SIN NOMBRE
